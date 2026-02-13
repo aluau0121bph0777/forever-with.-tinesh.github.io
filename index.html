@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,10 @@ body {
 
 h1 {
   margin-top: 30px;
-  font-size: 30px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
   padding: 0 20px;
 }
 
@@ -38,7 +38,19 @@ p {
   border-radius: 20px;
 }
 
-/* Proposal Popup */
+/* Buttons */
+button {
+  margin: 10px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ff4da6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Popup */
 .popup {
   display: none;
   position: fixed;
@@ -46,27 +58,17 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 20px;
   box-shadow: 0px 0px 20px pink;
   z-index: 1000;
-}
-
-.popup button {
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  background-color: #ff4da6;
-  color: white;
-  cursor: pointer;
 }
 
 /* Floating kisses */
 .floating {
   position: fixed;
   bottom: -50px;
-  font-size: 25px;
+  font-size: 24px;
   animation: floatUp 6s linear infinite;
 }
 
@@ -96,8 +98,9 @@ Love you Ammu 😘🫂
   <img id="slide" src="photo1.jpg">
 </div>
 
-<!-- Romantic GIF -->
 <br>
+
+<!-- Romantic GIF -->
 <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="200">
 
 <br><br>
@@ -108,13 +111,56 @@ Love you Ammu 😘🫂
 <div class="popup" id="proposal">
   <h2>Ammu 💖</h2>
   <p>Will you stay with me forever? 🥺💍</p>
-  <button onclick="alert('Yayyy 😭💖 I love you Ammu!')">Yes ❤️</button>
-  <button onclick="alert('No option 😝 You are mine forever!')">No 😜</button>
+
+  <button onclick="sayYes()">Yes ❤️</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+</div>
+
+<br><br>
+
+<h2>🎁 Special Gifts For You Ammu</h2>
+
+<button onclick="openGift('gift1')">💌 Love Letter</button>
+<button onclick="openGift('gift2')">😍 Why I Fell For You</button>
+<button onclick="openGift('gift3')">🥺 Our Cute Moments</button>
+
+<div id="gift1" class="popup">
+  <h3>My Love Letter 💌</h3>
+  <p>
+  My Ammu ❤️<br><br>
+  You are my home 🏡<br>
+  With you I feel complete 😁<br>
+  You made my life brighter 😍<br><br>
+  In every universe, all my versions choose you 💫<br><br>
+  Forever your Tiger 🐯
+  </p>
+</div>
+
+<div id="gift2" class="popup">
+  <h3>Why I Fell In Love 😍</h3>
+  <p>
+  • Your caring heart 💖<br>
+  • The way you protect me 🫂<br>
+  • Your smile 😁<br>
+  • The way you call me Tiger 🐯<br>
+  • You make me feel safe 🏡
+  </p>
+</div>
+
+<div id="gift3" class="popup">
+  <h3>Our Cute Moments 🥺</h3>
+  <p>
+  • Our late night talks 🌙<br>
+  • Our silly fights 😜<br>
+  • The way you make me laugh 😆<br>
+  • Every hug 🫂<br>
+  • Every “I love you” 💗
+  </p>
 </div>
 
 <script>
 
-/* Slideshow Script */
+/* Slideshow */
 var images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
 var i = 0;
 
@@ -126,9 +172,31 @@ function slideShow() {
 }
 slideShow();
 
-/* Popup */
+/* Proposal */
 function openPopup() {
   document.getElementById("proposal").style.display = "block";
+}
+
+function sayYes() {
+  document.body.innerHTML = `
+  <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ff66b2;font-family:cursive;">
+  <h1 style="color:white;font-size:38px;text-align:center;">
+  💖 Chandra is the Happiest Girl Now 💖<br><br>
+  Ammu said YES 😭💍
+  </h1>
+  </div>`;
+}
+
+function moveNo() {
+  var no = document.getElementById("noBtn");
+  no.style.position = "absolute";
+  no.style.left = Math.random() * 300 + "px";
+  no.style.top = Math.random() * 300 + "px";
+}
+
+/* Gifts */
+function openGift(id) {
+  document.getElementById(id).style.display = "block";
 }
 
 /* Floating kisses */
