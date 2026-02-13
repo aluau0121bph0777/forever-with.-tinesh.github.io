@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Ammu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ffccdd, #ffe6f2);
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  overflow-x: hidden;
+  color: #cc0066;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.slideshow img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Proposal Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px pink;
+  z-index: 1000;
+}
+
+.popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ff4da6;
+  color: white;
+  cursor: pointer;
+}
+
+/* Floating kisses */
+.floating {
+  position: fixed;
+  bottom: -50px;
+  font-size: 25px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>To My Ammu 💖</h1>
+
+<p>
+From your Tiger 🐯 <br><br>
+I love you more than anything in this world 🌎💗 <br>
+You are my home 🏡 <br>
+With you I feel complete 😁 <br>
+You made my life brighter 😍 <br><br>
+In every universe, all my versions will choose you only 💫 <br><br>
+Love you Ammu 😘🫂
+</p>
+
+<!-- Slideshow -->
+<div class="slideshow">
+  <img id="slide" src="photo1.jpg">
+</div>
+
+<!-- Romantic GIF -->
+<br>
+<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="200">
+
+<br><br>
+
+<button onclick="openPopup()">Click Here Ammu 💍</button>
+
+<!-- Proposal Popup -->
+<div class="popup" id="proposal">
+  <h2>Ammu 💖</h2>
+  <p>Will you stay with me forever? 🥺💍</p>
+  <button onclick="alert('Yayyy 😭💖 I love you Ammu!')">Yes ❤️</button>
+  <button onclick="alert('No option 😝 You are mine forever!')">No 😜</button>
+</div>
+
+<script>
+
+/* Slideshow Script */
+var images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+var i = 0;
+
+function slideShow() {
+  document.getElementById("slide").src = images[i];
+  i++;
+  if (i >= images.length) { i = 0; }
+  setTimeout(slideShow, 2000);
+}
+slideShow();
+
+/* Popup */
+function openPopup() {
+  document.getElementById("proposal").style.display = "block";
+}
+
+/* Floating kisses */
+function createFloating() {
+  const kiss = document.createElement("div");
+  kiss.classList.add("floating");
+  kiss.innerHTML = "💋🫂💖";
+  kiss.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(kiss);
+
+  setTimeout(() => {
+    kiss.remove();
+  }, 6000);
+}
+
+setInterval(createFloating, 800);
+
+</script>
+
+</body>
+</html>
